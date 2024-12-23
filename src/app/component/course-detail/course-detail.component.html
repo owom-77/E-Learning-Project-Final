@@ -1,0 +1,21 @@
+<div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+    {{ errorMessage }}
+  </div>
+  
+  <div *ngIf="course" class="card">
+    <div class="card-img-top" style="height: 200px; background-color: #f0f0f0; display: flex; justify-content: center; align-items: center;">
+      <span class="text-muted">No Image Available</span>
+    </div>
+    
+    <div class="card-body">
+      <h5 class="card-title">{{ course.name || 'Unnamed Course' }}</h5>
+      <p class="card-text">{{ course.description || 'No description available.' }}</p>
+      <p class="card-text"><strong>Price:</strong> ${{ course.price || 'N/A' }}</p>
+      <button class="btn btn-primary">Enroll Now</button>
+    </div>
+  </div>
+  
+  <div *ngIf="!course && !errorMessage" class="text-muted">
+    Loading course details...
+  </div>
+  

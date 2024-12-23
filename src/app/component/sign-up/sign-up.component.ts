@@ -32,6 +32,7 @@ export class SignUpComponent {
   constructor(private authService: AuthServiceService, private router: Router) {}
 
   onSubmit() {
+    console.log('Registration Data:', this.registration);
     
     this.authService.register(this.registration).subscribe(
       (response) => {

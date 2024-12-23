@@ -14,39 +14,56 @@ export class LoginComponent {
   email: string = '';
   password: string = '';
   errorMessage: string = '';
-  isAdmin: boolean = false;  // Track the login type (admin or user)
-  adminId: string = '';  // Track the Admin ID
+  isAdmin: boolean = false; 
+  adminId: string = ''; 
 
   constructor(private authService: AuthServiceService, private router: Router) {}
 
-  // Handle login form submission
   onLogin() {
-    // Construct login data based on the admin/user selection
-    const loginData = {
-      email: this.email,
-      password: this.password,
-      userType: this.isAdmin ? 'admin' : 'user',
-      adminId: this.isAdmin ? this.adminId : '', // Include adminId only if admin login
-    };
+    if (this.isAdmin) {
+      const adminLoginData = {
+        email: this.email,
+        password: this.password,
+        adminId: this.adminId,
+      };
+      console.log('Admin Login Data:', adminLoginData);
 
-    // Call the AuthService to login
-    this.authService.login(loginData).subscribe({
-      next: (response) => {
-        if (response.success) {
-          // Redirect based on the login type (admin or user)
-          const redirectPath = this.isAdmin ? '/admindashboard' : '/userdashboard';
-          alert(`Welcome, ${response.user.firstName}!`);
-          this.router.navigate([redirectPath]);
-        } else {
-          // Handle error response
-          this.errorMessage = response.message;
-        }
-      },
-      error: (error) => {
-        // Handle any unexpected errors
-        this.errorMessage = 'An error occurred. Please try again.';
-        console.error(error);
-      },
-    });
+      this.authService.adminLogin(adminLoginData).subscribe({
+        next: (response) => {
+          if (response.success) {
+            alert(`Welcome, Admin ${response.user.firstName}!`);
+            this.router.navigate(['/admindashboard']);
+          } else {
+            this.errorMessage = response.message;
+          }
+        },
+        error: (error) => {
+          this.errorMessage = 'Admin login failed. Please try again.';
+          console.error(error);
+        },
+      });
+    } else {
+      const userLoginData = {
+        email: this.email,
+        password: this.password,
+      };
+
+      console.log('User Login Data:', userLoginData);
+
+      this.authService.login(userLoginData).subscribe({
+        next: (response) => {
+          if (response.success) {
+            alert(`Welcome, ${response.user.firstName}!`);
+            this.router.navigate(['/userdashboard']);
+          } else {
+            this.errorMessage = response.message;
+          }
+        },
+        error: (error) => {
+          this.errorMessage = 'User login failed. Please try again.';
+          console.error(error);
+        },
+      });
+    }
   }
 }

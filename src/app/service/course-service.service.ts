@@ -7,7 +7,6 @@ import { Observable } from 'rxjs';
 })
 export class CourseService {
   private apiUrl = 'http://localhost:3000/courses'; 
-  private userApiUrl = 'http://localhost:3000/users';
 
   constructor(private http: HttpClient) {}
 
@@ -32,6 +31,6 @@ export class CourseService {
   }
 
   getUserCourses(userId: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.userApiUrl}/${userId}/courses`);
+    return this.http.get<any[]>(`${this.apiUrl}?userId=${userId}`);
   }
 }

@@ -21,4 +21,5 @@ export const routes: Routes = [
   {path : 'userdashborad', component : UserDashbordComponent},
   {path : 'admindashborad', component : AdminDashbordComponent},
   {path : 'postform', component : PostFormComponent},
+  { path: 'course/:id', component: CourseComponent},
 ];
