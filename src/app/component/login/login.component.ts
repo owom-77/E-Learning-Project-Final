@@ -22,19 +22,22 @@ export class LoginComponent {
   onLogin() {
     if (this.isAdmin) {
       const adminLoginData = {
+        adminId: this.adminId,
         email: this.email,
         password: this.password,
-        adminId: this.adminId,
+        
       };
       console.log('Admin Login Data:', adminLoginData);
 
       this.authService.adminLogin(adminLoginData).subscribe({
         next: (response) => {
-          if (response.success) {
-            alert(`Welcome, Admin ${response.user.firstName}!`);
-            this.router.navigate(['/admindashboard']);
+          if (response.success=="true") {
+            console.log(response)
+            //alert(`Welcome, Admin ${response.user.firstName}!`);
           } else {
             this.errorMessage = response.message;
+            this.router.navigate(['/admindashborad']);
+
           }
         },
         error: (error) => {
@@ -52,9 +55,9 @@ export class LoginComponent {
 
       this.authService.login(userLoginData).subscribe({
         next: (response) => {
-          if (response.success) {
-            alert(`Welcome, ${response.user.firstName}!`);
-            this.router.navigate(['/userdashboard']);
+          if (response) {
+           // alert(`Welcome, ${response.user.firstName}!`);
+            this.router.navigate(['/userdashborad']);
           } else {
             this.errorMessage = response.message;
           }

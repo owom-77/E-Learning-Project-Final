@@ -9,6 +9,7 @@ import { ContactUsComponent } from './component/contact-us/contact-us.component'
 import { UserDashbordComponent } from './component/user-dashbord/user-dashbord.component';
 import { AdminDashbordComponent } from './component/admin-dashbord/admin-dashbord.component';
 import { PostFormComponent } from './component/post-form/post-form.component';
+import { EmailComponent } from './email/email.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -22,4 +23,5 @@ export const routes: Routes = [
   {path : 'admindashborad', component : AdminDashbordComponent},
   {path : 'postform', component : PostFormComponent},
   { path: 'course/:id', component: CourseComponent},
+  { path:'email', component:EmailComponent}
 ];

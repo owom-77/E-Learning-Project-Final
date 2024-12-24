@@ -8,5 +8,5 @@ import { Component, Input } from '@angular/core';
 export class AdminLoginComponent {
   @Input() email: string = '';
   @Input() password: string = '';
-  adminId: string = '';
+  @Input() adminId: string = '';
 }

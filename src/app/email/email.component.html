@@ -1,0 +1,53 @@
+<!-- <body>
+
+
+    <div class="container">
+       
+      
+    
+    
+      <form [formGroup]="contact" (ngSubmit)="onSubmit()">
+        <label for="fullname">Full Name</label>
+        <input id="fullname" formControlName="fullName" type="text" required />
+    
+        <label for="subject">Subject</label>
+        <input id="subject" formControlName="email" type="text" required />
+    
+        <label for="message">Message</label>
+        <textarea id="message" formControlName="message" required></textarea>
+    
+        <button type="submit" [disabled]="!contact.valid">Submit</button>
+        <div *ngIf="responseMessage">
+          <p>{{ responseMessage }}</p>
+        </div>
+      </form>
+    <br><br>
+      
+    </div>
+    </body> -->
+    <body>
+      <div class="container">
+          <form [formGroup]="contact" (ngSubmit)="onSubmit()">
+              <label for="fullname">Full Name</label>
+              <input id="fullname" formControlName="fullName" type="text" required />
+  
+              <label for="subject">Subject</label>
+              <select id="subject" formControlName="subject" required>
+                  <option value="">Select a subject</option>
+                  <option value="general">General Inquiry</option>
+                  <option value="feedback">Feedback</option>
+                  <option value="support">Support</option>
+              </select>
+  
+              <label for="message">Message</label>
+              <textarea id="message" formControlName="message" required></textarea>
+  
+              <button type="submit" [disabled]="!contact.valid">Submit</button>
+              <div *ngIf="responseMessage">
+                  <p>{{ responseMessage }}</p>
+              </div>
+          </form>
+      </div>
+  </body>
+  
+  

@@ -6,8 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthServiceService {
-  private baseUrl = 'http://localhost:8080';
+  private baseUrl = 'http://localhost:8080/user';
   private tokenKey = 'authToken';
+ private adminUrl=  'http://localhost:8080/admin'
 
   constructor(private http: HttpClient) {}
 
@@ -15,8 +16,8 @@ export class AuthServiceService {
     return this.http.post<any>(`${this.baseUrl}/login`, credentials);
   }
 
-  adminLogin(credentials: { email: string; password: string; adminId: string }): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}/admin/login`, credentials);
+  adminLogin(credentials: {adminId: string ; email: string; password: string}): Observable<any> {
+    return this.http.post<any>(`${this.adminUrl}/login`, credentials);
   }
 
   register(userData: {
