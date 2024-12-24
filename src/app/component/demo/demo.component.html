@@ -1,0 +1,88 @@
+<p>demo works!</p>
+<section class="demo-section container py-5">
+    <!-- Introduction to the Platform -->
+    <header class="text-center mb-4">
+      <h1>Welcome to our E-learning platform!</h1>
+      <p class="lead">Here, you can explore a variety of online courses and enhance your skills in different domains. Let’s start by browsing our most popular courses.</p>
+    </header>
+  
+    <!-- Interactive Walkthrough Section (Placeholder) -->
+    <section class="walkthrough mb-4">
+      <h2 class="h3 text-center">How to Explore and Enroll in Courses</h2>
+      <p class="text-center">Watch this quick demo to get started:</p>
+      <div class="d-flex justify-content-center">
+        
+      </div>
+    </section>
+  
+    <!-- Featured Courses -->
+    <section class="featured-courses mb-4">
+      <h2 class="h3 text-center">Featured Courses</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4" *ngFor="let course of featuredCourses">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h3 class="card-title">{{ course.name }}</h3>
+              <p class="card-text">{{ course.description }}</p>
+              <p><strong>Price:</strong> ${{ course.price }}</p>
+              <button class="btn btn-primary w-100">View Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Live Interaction or Sample Course -->
+    <section class="sample-course mb-4 text-center">
+      <h2 class="h3">Try a Sample Lesson</h2>
+      <p>Experience a preview of our React.js for Beginners course!</p>
+      <button class="btn btn-success">Start Lesson</button>
+    </section>
+  
+    <!-- Call to Action -->
+    <section class="cta text-center">
+      <button class="btn btn-lg btn-primary">{{ callToAction }}</button>
+    </section>
+  
+    <!-- User Testimonials -->
+    <section class="testimonials mb-4">
+      <h2 class="h3 text-center">What Our Users Say</h2>
+      <div class="row">
+        <div class="col-md-6" *ngFor="let testimonial of testimonials">
+          <div class="card shadow-sm mb-3">
+            <div class="card-body">
+              <p class="card-text">"{{ testimonial.text }}"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Platform Features -->
+    <section class="platform-features mb-4">
+      <h2 class="h3 text-center">Features of Our Platform</h2>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" *ngFor="let feature of features">{{ feature }}</li>
+      </ul>
+    </section>
+  
+    <!-- Demo of UI/UX Features -->
+    <section class="ui-features mb-4 text-center">
+      <h2 class="h3">Explore Our User Interface</h2>
+      <p>Search for courses based on your interests and difficulty level:</p>
+      <div class="d-flex justify-content-center">
+        <input class="form-control w-50" type="text" placeholder="Search for courses...">
+        <button class="btn btn-primary ms-2">Search</button>
+      </div>
+    </section>
+
+    <!-- Basic Java YouTube Video Section -->
+    <section class="java-video mb-4">
+      <h2 class="h3 text-center">Learn Basic Java</h2>
+      <p class="text-center">Watch this introductory video to get started with Java programming!</p>
+      <div class="d-flex justify-content-center">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </section>
+
+</section>

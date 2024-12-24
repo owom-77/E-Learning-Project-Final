@@ -1,0 +1,13 @@
+<div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+  {{ errorMessage }}
+</div>
+
+<div *ngIf="course" class="course-detail">
+  <h2>{{ course.name }}</h2>
+  <p>{{ course.description }}</p>
+  <p><strong>Price:</strong> ${{ course.price }}</p>
+</div>
+
+<div *ngIf="!course && !errorMessage" class="text-center">
+  <p>Loading course details...</p>
+</div>

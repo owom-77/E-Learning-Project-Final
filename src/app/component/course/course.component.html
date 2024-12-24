@@ -1,0 +1,27 @@
+<div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+  {{ errorMessage }}
+</div>
+
+<div *ngIf="!errorMessage && courses.length === 0" class="text-center my-5">
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+<!-- Course Cards -->
+<div *ngIf="courses.length > 0" class="row row-cols-1 row-cols-md-4 g-2">
+  <div class="col" *ngFor="let course of courses" (click)="viewCourseDetails(course.id)">
+    <div class="card h-100 shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title">{{ course.name || 'Unnamed Course' }}</h5>
+        <p class="card-text">{{ course.description || 'No description available.' }}</p>
+        <p class="card-text"><strong>Price:</strong> ${{ course.price || 'N/A' }}</p>
+        <a href="#!" class="btn btn-primary">Learn More</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="courses.length === 0 && !errorMessage" class="text-center my-5">
+  <p class="text-muted">No courses available at the moment.</p>
+</div>
